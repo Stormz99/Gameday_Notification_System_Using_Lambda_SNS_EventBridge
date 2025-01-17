@@ -152,12 +152,3 @@ cd game-day-notifications
 2. Securing AWS services with least privilege IAM policies.
 3. Automating workflows using EventBridge.
 4. Integrating external APIs into cloud-based workflows.
-
-
-### **Future Enhancements**
-1. Add NFL score alerts for extended functionality.
-2. Store user preferences (teams, game types) in DynamoDB for personalized alerts.
-3. Implement a web UI
-# Gameday_Notification_System_Using_Lambda_SNS_EventBridge
-# Gameday_Notification_System_Using_Lambda_SNS_EventBridge
-# Gameday_Notification_System_Using_Lambda_SNS_EventBridge
