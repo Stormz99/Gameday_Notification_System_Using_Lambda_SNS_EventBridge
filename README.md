@@ -51,7 +51,7 @@ game-day-notifications/
 
 ### **Clone the Repository**
 ```bash
-git clone https://github.com/ifeanyiro9/game-day-notifications.git
+git clone https://github.com/Stormz99/game-day-notifications.git
 cd game-day-notifications
 ```
 
@@ -61,6 +61,8 @@ cd game-day-notifications
 3. Click Create Topic and select Standard as the topic type.
 4. Name the topic (e.g., gd_topic) and note the ARN.
 5. Click Create Topic.
+
+![nba_sns_topic](game-day-notifications/images/Screenshot 2025-01-17 at 2.22.23 AM.png)
 
 ### **Add Subscriptions to the SNS Topic**
 1. After creating the topic, click on the topic name from the list.
@@ -72,6 +74,8 @@ cd game-day-notifications
 - For SMS (phone number):
   - Choose SMS.
   - Enter a valid phone number in international format (e.g., +1234567890).
+
+![adding_subscription_to_sns_topic](game-day-notifications/images/Screenshot 2025-01-17 at 2.31.09 AM.png)
 
 4. Click Create Subscription.
 5. If you added an Email subscription:
@@ -89,6 +93,8 @@ cd game-day-notifications
 7. Enter a name for the policy (e.g., gd_sns_policy).
 8. Review and click Create Policy.
 
+![review_sns_publish_policy](game-day-notifications/images/Screenshot 2025-01-17 at 2.35.50 AM.png)
+
 ### **Create an IAM Role for Lambda**
 1. Open the IAM service in the AWS Management Console.
 2. Click Roles → Create Role.
@@ -101,6 +107,10 @@ cd game-day-notifications
 7. Enter a name for the role (e.g., gd_role).
 8. Review and click Create Role.
 9. Copy and save the ARN of the role for use in the Lambda function.
+
+![creating_IAM_policy_for_lambda](game-day-notifications/images/Screenshot 2025-01-17 at 2.55.50 AM.png)
+
+![creating_IAM_roles_for_lambda](game-day-notifications/images/Screenshot 2025-01-17 at 2.59.51 AM.png)
 
 ### **Deploy the Lambda Function**
 1. Open the AWS Management Console and navigate to the Lambda service.
@@ -117,6 +127,7 @@ cd game-day-notifications
 - SNS_TOPIC_ARN: the ARN of the SNS topic created earlier.
 9. Click Create Function.
 
+![deploying_the_lambda_function](game-day-notifications/images/Screenshot 2025-01-17 at 3.20.10 AM.png)
 
 ### **Set Up Automation with Eventbridge**
 1. Navigate to the Eventbridge service in the AWS Management Console.
@@ -124,6 +135,7 @@ cd game-day-notifications
 3. Select Event Source: Schedule.
 4. Set the cron schedule for when you want updates (e.g., hourly).
 5. Under Targets, select the Lambda function (gd_notifications) and save the rule.
+![automating_with_eventbridge](game-day-notifications/images/Screenshot 2025-01-17 at 4.08.08 AM.png)
 
 
 ### **Test the System**
@@ -131,6 +143,8 @@ cd game-day-notifications
 2. Create a test event to simulate execution.
 3. Run the function and check CloudWatch Logs for errors.
 4. Verify that SMS notifications are sent to the subscribed users.
+
+![testing_the_system](game-day-notifications/images/Screenshot 2025-01-17 at 3.54.06 AM.png)
 
 
 ### **What We Learned**
@@ -144,3 +158,4 @@ cd game-day-notifications
 1. Add NFL score alerts for extended functionality.
 2. Store user preferences (teams, game types) in DynamoDB for personalized alerts.
 3. Implement a web UI
+# Gameday_Notification_System_Using_Lambda_SNS_EventBridge
