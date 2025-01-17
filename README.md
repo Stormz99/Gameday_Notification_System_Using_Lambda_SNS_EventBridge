@@ -1,7 +1,7 @@
 # NBA Game Day Notifications / Sports Alerts System
 
 ## **Project Overview**
-This project is an alert system that sends real-time NBA game day score notifications to subscribed users via SMS/Email. It leverages **Amazon SNS**, **AWS Lambda and Python**, **Amazon EvenBridge** and **NBA APIs** to provide sports fans with up-to-date game information. The project demonstrates cloud computing principles and efficient notification mechanisms.
+This project is an alert system that sends real-time NBA game day score notifications to subscribed users via SMS/Email. It leverages **Amazon SNS**, **AWS Lambda and Python**, **Amazon EventBridge** and **NBA APIs** to provide sports fans with up-to-date game information. The project demonstrates cloud computing principles and efficient notification mechanisms.
 
 ---
 
@@ -18,11 +18,9 @@ This project is an alert system that sends real-time NBA game day score notifica
 ---
 
 ## **Technical Architecture**
-![nba_API](https://github.com/user-attachments/assets/5e19635e-0685-4c07-9601-330f7d1231f9)
-
+![nba_API](images/Screenshot%202025-01-17%20at%202.22.23%20AM.png)
 
 ---
-
 
 ## **Technologies**
 - **Cloud Provider**: AWS
@@ -43,6 +41,21 @@ game-day-notifications/
 │   ├── gb_sns_policy.json           # SNS publishing permissions
 │   ├── gd_eventbridge_policy.json   # EventBridge to Lambda permissions
 │   └── gd_lambda_policy.json        # Lambda execution role permissions
+├── images/                          # Image assets for documentation
+│   ├── Screenshot%202025-01-17%20at%202.22.23%20AM.png
+│   ├── Screenshot%202025-01-17%20at%202.29.46%20AM.png
+│   ├── Screenshot%202025-01-17%20at%202.31.09%20AM.png
+│   ├── Screenshot%202025-01-17%20at%202.35.50%20AM.png
+│   ├── Screenshot%202025-01-17%20at%202.55.50%20AM.png
+│   ├── Screenshot%202025-01-17%20at%202.59.51%20AM.png
+│   ├── Screenshot%202025-01-17%20at%203.00.54%20AM.png
+│   ├── Screenshot%202025-01-17%20at%203.07.44%20AM.png
+│   ├── Screenshot%202025-01-17%20at%203.20.10%20AM.png
+│   ├── Screenshot%202025-01-17%20at%203.39.34%20AM.png
+│   ├── Screenshot%202025-01-17%20at%203.54.06%20AM.png
+│   ├── Screenshot%202025-01-17%20at%204.08.08%20AM.png
+│   ├── Screenshot%202025-01-17%20at%204.18.44%20AM.png
+│   └── Screenshot%202025-01-17%20at%204.19.19%20AM.png
 ├── .gitignore
 └── README.md                        # Project documentation
 ```
@@ -62,7 +75,7 @@ cd game-day-notifications
 4. Name the topic (e.g., gd_topic) and note the ARN.
 5. Click Create Topic.
 
-![nba_sns_topic](game-day-notifications/images/Screenshot 2025-01-17 at 2.22.23 AM.png)
+![nba_sns_topic](images/Screenshot%202025-01-17%20at%202.22.23%20AM.png)
 
 ### **Add Subscriptions to the SNS Topic**
 1. After creating the topic, click on the topic name from the list.
@@ -75,7 +88,7 @@ cd game-day-notifications
   - Choose SMS.
   - Enter a valid phone number in international format (e.g., +1234567890).
 
-![adding_subscription_to_sns_topic](game-day-notifications/images/Screenshot 2025-01-17 at 2.31.09 AM.png)
+![adding_subscription_to_sns_topic](images/Screenshot%202025-01-17%20at%202.31.09%20AM.png)
 
 4. Click Create Subscription.
 5. If you added an Email subscription:
@@ -93,7 +106,7 @@ cd game-day-notifications
 7. Enter a name for the policy (e.g., gd_sns_policy).
 8. Review and click Create Policy.
 
-![review_sns_publish_policy](game-day-notifications/images/Screenshot 2025-01-17 at 2.35.50 AM.png)
+![review_sns_publish_policy](images/Screenshot%202025-01-17%20at%202.35.50%20AM.png)
 
 ### **Create an IAM Role for Lambda**
 1. Open the IAM service in the AWS Management Console.
@@ -108,9 +121,9 @@ cd game-day-notifications
 8. Review and click Create Role.
 9. Copy and save the ARN of the role for use in the Lambda function.
 
-![creating_IAM_policy_for_lambda](game-day-notifications/images/Screenshot 2025-01-17 at 2.55.50 AM.png)
+![creating_IAM_policy_for_lambda](images/Screenshot%202025-01-17%20at%202.55.50%20AM.png)
 
-![creating_IAM_roles_for_lambda](game-day-notifications/images/Screenshot 2025-01-17 at 2.59.51 AM.png)
+![creating_IAM_roles_for_lambda](images/Screenshot%202025-01-17%20at%202.59.51%20AM.png)
 
 ### **Deploy the Lambda Function**
 1. Open the AWS Management Console and navigate to the Lambda service.
@@ -127,7 +140,7 @@ cd game-day-notifications
 - SNS_TOPIC_ARN: the ARN of the SNS topic created earlier.
 9. Click Create Function.
 
-![deploying_the_lambda_function](game-day-notifications/images/Screenshot 2025-01-17 at 3.20.10 AM.png)
+![deploying_the_lambda_function](images/Screenshot%202025-01-17%20at%203.20.10%20AM.png)
 
 ### **Set Up Automation with Eventbridge**
 1. Navigate to the Eventbridge service in the AWS Management Console.
@@ -135,7 +148,7 @@ cd game-day-notifications
 3. Select Event Source: Schedule.
 4. Set the cron schedule for when you want updates (e.g., hourly).
 5. Under Targets, select the Lambda function (gd_notifications) and save the rule.
-![automating_with_eventbridge](game-day-notifications/images/Screenshot 2025-01-17 at 4.08.08 AM.png)
+![automating_with_eventbridge](images/Screenshot%202025-01-17%20at%204.08.08%20AM.png)
 
 
 ### **Test the System**
@@ -144,7 +157,7 @@ cd game-day-notifications
 3. Run the function and check CloudWatch Logs for errors.
 4. Verify that SMS notifications are sent to the subscribed users.
 
-![testing_the_system](game-day-notifications/images/Screenshot 2025-01-17 at 3.54.06 AM.png)
+![testing_the_system](images/Screenshot%202025-01-17%20at%203.54.06%20AM.png)
 
 
 ### **What We Learned**
@@ -152,3 +165,9 @@ cd game-day-notifications
 2. Securing AWS services with least privilege IAM policies.
 3. Automating workflows using EventBridge.
 4. Integrating external APIs into cloud-based workflows.
+
+
+### **Future Enhancements**
+1. Add NFL score alerts for extended functionality.
+2. Store user preferences (teams, game
+
