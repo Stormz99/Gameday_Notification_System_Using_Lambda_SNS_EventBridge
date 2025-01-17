@@ -145,10 +145,3 @@ cd game-day-notifications
 2. Securing AWS services with least privilege IAM policies.
 3. Automating workflows using EventBridge.
 4. Integrating external APIs into cloud-based workflows.
-
----
-
-## **Future Enhancements**
-1. Add NFL score alerts for extended functionality.
-2. Store user preferences (e.g., teams, games).
-3. Enhance logging and monitoring for better system insights.
