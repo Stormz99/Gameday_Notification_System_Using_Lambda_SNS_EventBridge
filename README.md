@@ -70,7 +70,7 @@ cd game-day-notifications
 4. Name the topic (e.g., `gd_topic`) and note the ARN.
 5. Click **Create Topic**.
 
-![SNS Topic Setup](./images/sns_topic_setup.png)
+![SNS Topic Setup](./images/sns_topic.png)
 
 ### **3. Add Subscriptions to the SNS Topic**
 1. Open the topic from the list.
@@ -81,7 +81,9 @@ cd game-day-notifications
 4. Click **Create Subscription**.
 5. For email subscriptions, confirm the subscription via the email link sent to your inbox.
 
-![Subscription Setup](./images/subscription_setup.png)
+![Subscription Setup](./images/subsription_setup.png)
+
+![email_confimation](./images/email_confirmation.png)
 
 ### **4. Create an SNS Publish Policy**
 1. Open the IAM service in the AWS Management Console.
@@ -100,7 +102,11 @@ cd game-day-notifications
 4. Attach the following policies:
    - `gd_sns_policy` (created earlier).
    - **AWSLambdaBasicExecutionRole** (AWS managed policy).
+
+![adding_gd_sns_topic](./images/adding_gd_sns_policy.png)
 5. Name the role (e.g., `gd_role`) and click **Create Role**.
+
+!  [iam_role](./images/iam_role.png)
 
 ### **6. Deploy the Lambda Function**
 1. Open the Lambda service in the AWS Management Console.
@@ -116,7 +122,7 @@ cd game-day-notifications
    - `SNS_TOPIC_ARN`: ARN of the SNS topic created earlier.
 6. Click **Create Function**.
 
-![Lambda Deployment](./images/lambda_deployment.png)
+![Lambda Deployment](./images/creating_a_lambda.png)
 
 ### **7. Automate with EventBridge**
 1. Open the EventBridge service in the AWS Management Console.
@@ -128,7 +134,7 @@ cd game-day-notifications
    - **Function Name**: `gd_notifications`
 6. Save the rule.
 
-![EventBridge Setup](./images/eventbridge_setup.png)
+![EventBridge Setup](./images/eventBridge_setup.png)
 
 ---
 
@@ -138,6 +144,7 @@ cd game-day-notifications
 3. Run the function and check CloudWatch logs for errors.
 4. Verify that SMS or email notifications are sent to the subscribed users.
 
+![testing](./images/testing.png)
 ---
 
 ## **What We Learned**
@@ -145,3 +152,4 @@ cd game-day-notifications
 2. Securing AWS services with least privilege IAM policies.
 3. Automating workflows using EventBridge.
 4. Integrating external APIs into cloud-based workflows.
+
